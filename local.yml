@@ -1,0 +1,13 @@
+- name: Install modules 
+  hosts: localhost
+  vars:
+    go_version: "1.21.2"
+  tags:
+    - zsh
+    - go
+    - node
+  tasks:
+    - include: tasks/zsh.yml
+    - include: tasks/node.yml
+    - include: tasks/go.yml
+
