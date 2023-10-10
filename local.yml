@@ -3,9 +3,7 @@
   vars:
     go_version: "1.21.2"
   tags:
-    - zsh
-    - go
-    - node
+    - install
   tasks:
     - include: tasks/zsh.yml
     - include: tasks/node.yml
