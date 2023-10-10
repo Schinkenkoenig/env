@@ -1,0 +1,24 @@
+- name: Install System Packages 1 
+  become: true
+  apt:
+    name: ["stow"] 
+  tags:
+    - install
+    - core
+    - dotfiles 
+    - stow 
+
+- name: Stow dotfiles
+  shell: cd $HOME/.dotfiles && stow .
+  tags:
+    - install
+    - core
+    - dotfiles 
+    - stow 
+
+
+
+
+
+
+

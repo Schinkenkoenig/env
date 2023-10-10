@@ -1,5 +1,5 @@
-FROM ubuntu:focal
-WORKDIR /usr/local/bin
+FROM ubuntu:focal as base
+WORKDIR /root
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && \
     apt-get upgrade -y && \
@@ -10,7 +10,14 @@ RUN apt-get update && \
     apt-get clean autoclean && \
     apt-get autoremove --yes
 
+FROM base as nilsse
 ARG TAGS
+RUN addgroup --gid 1000 nilsse 
+RUN adduser nillse --uid 1000 --gid 1000 
+USER nilsse 
+WORKDIR /home/nilsse 
+
+FROM nilsse
 COPY . .
 CMD ["sh", "-c", "ansible-playbook $TAGS local.yml"]
 
