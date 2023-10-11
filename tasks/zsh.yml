@@ -17,8 +17,17 @@
   tags: *tags_for_zsh_tasks
   when: oh_my_stats.stat.exists == False
   become_user: nilsse 
+  become: true
 
-- name: Install zsh-autosuggestions
+- name: Delete .zshrc, stupid file
+  shell: rm -rf ~/.zshrc
+  become_user: nilsse
+  become: true 
+  tags: *tags_for_zsh_tasks
+
+- name: Install autosuggestions
+  become_user: nilsse 
+  become: true
   ansible.builtin.git:
     repo: 'https://github.com/zsh-users/zsh-autosuggestions.git'
     dest: "~/.oh-my-zsh/plugins/zsh-autosuggestions"

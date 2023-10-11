@@ -9,7 +9,9 @@
     - stow 
 
 - name: Stow dotfiles
-  shell: cd $HOME/.dotfiles && stow .
+  become_user: nilsse
+  become: true
+  shell: cd $HOME/.dotfiles && ./stow.sh
   tags:
     - install
     - core

@@ -13,7 +13,10 @@ RUN apt-get update && \
 FROM base as nilsse
 ARG TAGS
 RUN addgroup --gid 1000 nilsse 
-RUN adduser nillse --uid 1000 --gid 1000 
+RUN adduser nilsse --uid 1000 --gid 1000 
+RUN echo "nilsse:vokuhila" | chpasswd
+RUN echo "nilsse ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/nilsse
+
 USER nilsse 
 WORKDIR /home/nilsse 
 
