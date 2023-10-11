@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+addToPathFront /home/nilssebin
+addToPath /usr/local/go/bin
+addToPath $GOPATH/bin
+addToPath $HOME/.cargo/bin
+addToPath $HOME/.rustup
+
+# ccache
+addToPathFront /usr/lib/ccache
+
