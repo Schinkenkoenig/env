@@ -14,7 +14,8 @@
     - do i get full ham with building this?
     - I think this is big enough to warrant steps 
         - add unstable ppa
-        - apt install 
+        - apt install
+        - adjust dockerfile to only copy necessary stuff
         - add packer 
         - stow 
 - Languages to install 

@@ -1,0 +1,9 @@
+- name: Add unstable ppa for neovim
+  ansible.builtin.apt_repository:
+      repo: ppa:neovim-ppa/unstable
+
+- name: Install nvim 
+  ansible.builtin.apt:
+    name: neovim 
+
+
