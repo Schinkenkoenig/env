@@ -1,3 +1,0 @@
-- name: Install tmux  
-  apt: name=tmux
-  tags: ['install','tmux' ]

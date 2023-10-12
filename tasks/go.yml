@@ -2,21 +2,25 @@
   command: wget https://go.dev/dl/go{{go_version}}.linux-amd64.tar.gz
   tags:
     - go
+    - install 
 
 - name: Delete previous installation
   command: rm -rf /usr/local/go
   become: true
   tags:
     - go
+    - install 
 
 - name: Extract and move new go folder to /usr/local
   command: tar -C /usr/local -xzf go{{go_version}}.linux-amd64.tar.gz
   become: true
   tags:
     - go
+    - install 
 
 - name: Delete downloaded tar file
   shell: rm -rf go{{go_version}}.linux-amd64.tar.gz
   tags:
     - go
+    - install 
 

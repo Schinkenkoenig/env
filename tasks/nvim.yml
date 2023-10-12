@@ -1,24 +1,11 @@
-- name: Install System Packages 1 
-  become: true
-  apt:
-    name: 
-      - clang
-      - clang-11
-      - clang-12
-      - clangd
-      - clangd-10
-      - clangd-11
-      - clangd-12
-      - ninja-build
-      - gettext
-      - cmake
-      - unzip 
-      - curl 
-
 - name: Remove neovim
   shell: rm -rf ~/neovim
   become: true
   become_user: nilsse
+  tags:
+    - install 
+    - neovim
+
 
 - name: Clone Neovim
   become: true
@@ -27,16 +14,25 @@
     depth: 1
     repo: 'https://github.com/neovim/neovim.git'
     dest: "~/neovim"
+  tags:
+    - install 
+    - neovim
 
 - name: Build neovim
   become: true
   become_user: nilsse
   shell: "cd ~/neovim && sudo make -j 20"
+  tags:
+    - install 
+    - neovim
 
 - name: Install neovim
   become: true
   become_user: nilsse
   shell: "cd ~/neovim && sudo make install"
+  tags:
+    - install 
+    - neovim
 
 - name: Install packer for neovim
   become: true
@@ -45,8 +41,14 @@
     repo: 'https://github.com/wbthomason/packer.nvim'
     dest: '~/.local/share/nvim/site/pack/packer/start/packer.nvim'
     depth: 1
+  tags:
+    - install 
+    - neovim
 
 - name: Sync packer stuff
   become: true
   become_user: nilsse
   shell: nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+  tags:
+    - install 
+    - neovim
