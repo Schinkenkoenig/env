@@ -16,15 +16,7 @@
     - go
 
 - name: Delete downloaded tar file
-  shell: rm -rf go{{go_version}}.linux-amd64.tar.gz*
+  shell: rm -rf go{{go_version}}.linux-amd64.tar.gz
   tags:
     - go
 
-- name: Add go binary path to ~/.profile
-  lineinfile:
-    path: ~/.zshrc
-    line: 'export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin'
-    create: true
-    state: present
-  tags:
-    - go

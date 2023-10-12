@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [[ -z $STOW_FOLDERS ]]; then
-    STOW_FOLDERS="zsh,tmux"
+    STOW_FOLDERS="zsh,tmux,nvim"
 fi
 
 for folder in $(echo $STOW_FOLDERS | sed "s/,/ /g")

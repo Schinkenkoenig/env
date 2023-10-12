@@ -1,9 +1,52 @@
-- name: Add unstable ppa for neovim
-  ansible.builtin.apt_repository:
-      repo: ppa:neovim-ppa/unstable
+- name: Install System Packages 1 
+  become: true
+  apt:
+    name: 
+      - clang
+      - clang-11
+      - clang-12
+      - clangd
+      - clangd-10
+      - clangd-11
+      - clangd-12
+      - ninja-build
+      - gettext
+      - cmake
+      - unzip 
+      - curl 
 
-- name: Install nvim 
-  ansible.builtin.apt:
-    name: neovim 
+- name: Remove neovim
+  shell: rm -rf ~/neovim
+  become: true
+  become_user: nilsse
 
+- name: Clone Neovim
+  become: true
+  become_user: nilsse
+  ansible.builtin.git:
+    depth: 1
+    repo: 'https://github.com/neovim/neovim.git'
+    dest: "~/neovim"
 
+- name: Build neovim
+  become: true
+  become_user: nilsse
+  shell: "cd ~/neovim && sudo make -j 20"
+
+- name: Install neovim
+  become: true
+  become_user: nilsse
+  shell: "cd ~/neovim && sudo make install"
+
+- name: Install packer for neovim
+  become: true
+  become_user: nilsse
+  ansible.builtin.git:
+    repo: 'https://github.com/wbthomason/packer.nvim'
+    dest: '~/.local/share/nvim/site/pack/packer/start/packer.nvim'
+    depth: 1
+
+- name: Sync packer stuff
+  become: true
+  become_user: nilsse
+  shell: nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'

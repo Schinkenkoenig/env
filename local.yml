@@ -9,6 +9,6 @@
     - include: tasks/tmux.yml
     - include: tasks/dotfiles.yml
     - include: tasks/nvim.yml
+    - include: tasks/go.yml
     #    - include: tasks/node.yml
-    #    - include: tasks/go.yml
 
