@@ -1,0 +1,25 @@
+- name: Install System Packages (neovim build stuff, tooling, tmux) 
+  become: true
+  tags:
+    - install 
+    - core
+    - neovim 
+    - tmux 
+  apt:
+    name: 
+      - clang
+      - clang-11
+      - clang-12
+      - clangd
+      - clangd-10
+      - clangd-11
+      - clangd-12
+      - ninja-build
+      - gettext
+      - cmake
+      - unzip 
+      - curl 
+      - tmux
+      - tldr 
+      - lsof 
+      - moreutils

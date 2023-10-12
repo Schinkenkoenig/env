@@ -1,0 +1,7 @@
+- name: Install rust 
+  become: true
+  become_user: nilsse
+  tags: 
+    - install 
+    - rust
+  shell: sudo curl --proto '=https' --tlsv1.3 https://sh.rustup.rs -sSf | sh -s -- -y
