@@ -13,13 +13,15 @@
       - install
       - core
   tasks:
-    - include: tasks/core-setup.yml
     - include: tasks/zsh.yml
-    - include: tasks/dotfiles.yml
-    - include: tasks/nvim.yml
-    - include: tasks/go.yml
-    - include: tasks/dotnet.yml
-    - include: tasks/rust.yml
+    - include: tasks/ssh.yml
+    - include: tasks/git.yml
+    - include: tasks/core-setup.yml
     - include: tasks/node.yml
     - include: tasks/npm-packages.yml
+    - include: tasks/go.yml
+    - include: tasks/rust.yml
+    - include: tasks/dotnet.yml
+    - include: tasks/dotfiles.yml
+    - include: tasks/nvim.yml
 

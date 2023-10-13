@@ -1,0 +1,46 @@
+- name: Ensure .ssh directory exists.
+  become: true
+  become_user: nilsse
+  file:
+    dest: "~/.ssh"
+    mode: 0700
+    state: directory
+  tags:
+    - dotfiles
+    - install
+    - ssh
+- name: Install ssh key
+  become: true
+  become_user: nilsse
+  copy:
+    src: "./.ssh/id_ed25519"
+    dest: "~/.ssh/id_ed25519"
+    mode: 0600
+  tags:
+    - dotfiles
+    - install
+    - ssh
+- name: Install ssh key public
+  become: true
+  become_user: nilsse
+  copy:
+    src: "./.ssh/id_ed25519.pub"
+    dest: "~/.ssh/id_ed25519.pub"
+    mode: 0644
+  tags:
+    - dotfiles
+    - install
+    - ssh
+- name: Set authorized key took from file
+  become: true
+  become_user: nilsse
+  tags:
+    - dotfiles
+    - install
+    - ssh
+  authorized_key:
+    user: "nilsse"
+    state: present
+    key: "~/.ssh/id_ed25519.pub"
+  with_fileglob:
+  - "~/.ssh/*.pub"

@@ -1,11 +1,12 @@
-# Setup ansible vault and github ssh key
-   - just steal ssh and git tasks yolo  
 # Go to lazy vim from packer         
 
 # Bugs and issues 
 - Update lsp zero
 - become + become_user becomes bothersome -> .ansible.cfg?
-- warning about localhosts
-- include is deprecated 
+
+# Some warnings which i dont care currently about
 - folder does not exist for .ansible/tmp 
+- include is deprecated 
+- warning about localhosts
+- ssh warning during install
 

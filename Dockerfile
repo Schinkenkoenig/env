@@ -21,7 +21,7 @@ USER nilsse
 WORKDIR /home/nilsse 
 
 FROM nilsse
-COPY --chown=nilsse:nilsse . .
+COPY --chown=nilsse:nilsse . ./ansible
 
 
 CMD ["sh", "-c", "ansible-playbook $TAGS local.yml"]
