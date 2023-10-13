@@ -1,5 +1,5 @@
 # Setup ansible vault and github ssh key
-
+   - just steal ssh and git tasks yolo  
 # Go to lazy vim from packer         
 
 # Bugs and issues 
