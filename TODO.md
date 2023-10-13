@@ -1,8 +1,9 @@
 # Go to lazy vim from packer         
+# Update lsp zero
+# Use ansible cfg to define user
+
 
 # Bugs and issues 
-- Update lsp zero
-- become + become_user becomes bothersome -> .ansible.cfg?
 
 # Some warnings which i dont care currently about
 - folder does not exist for .ansible/tmp 

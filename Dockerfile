@@ -1,4 +1,4 @@
-FROM ubuntu:focal as base
+FROM ubuntu:jammy as base
 WORKDIR /root
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && \

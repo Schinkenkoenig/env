@@ -8,10 +8,22 @@
     - dotfiles 
     - stow 
 
+- name: Copy dotfiles dir 
+  become: true
+  become_user: nilsse
+  ansible.builtin.copy:
+    src: .dotfiles/
+    dest: $HOME/.dotfiles 
+  tags:
+    - install
+    - core
+    - dotfiles 
+    - stow 
+
 - name: Stow dotfiles
   become_user: nilsse
   become: true
-  shell: cd $HOME/.dotfiles && ./stow.sh
+  shell: cd $HOME/.dotfiles && chmod +x stow.sh && ./stow.sh
   tags:
     - install
     - core
