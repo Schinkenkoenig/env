@@ -3,8 +3,7 @@
   apt:
     update_cache: true
     name:
-      - dotnet6
-      - dotnet7
+      - dotnet8
   tags:
     - install 
     - dotnet
